@@ -5,5 +5,5 @@ class RecipeCluster(BaseModel):
     depth: float
     rad: float
     lat: float
-    long: float
-    loc: str
+    lon: float
+    prov: str

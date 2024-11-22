@@ -1,17 +1,33 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
 from schemas.cluster import RecipeCluster
-from model.kmeans import KMeans_Clustering
+from model.kmeans import KMeansClustering
+from model.kmedoids import KMedoidsClustering
+from model.transform import Transform
 
 app = FastAPI()
 
 @app.post("/api/kmeans")
 def postKmeans(items: RecipeCluster):
-    result = KMeans_Clustering(items)
+    clustering_instance = KMeansClustering(items)
+    labels = clustering_instance.predict()
 
     return {
         'status': "200",
         'data': {
-            result
+            'cluster': labels.tolist()
+        }
+    }
+
+
+@app.post("/api/kmedoids")
+def postKmedoids(items: RecipeCluster):
+    clustering_instance = KMedoidsClustering(items)
+    labels = clustering_instance.predict()
+
+    return {
+        'status': "200",
+        'data': {
+            'cluster': labels.tolist()
         }
     }

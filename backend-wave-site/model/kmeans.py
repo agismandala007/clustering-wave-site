@@ -1,14 +1,17 @@
-import pandas as pd
+import pickle
 from sklearn.cluster import KMeans
-from sklearn.preprocessing import Normalizer
 from schemas.cluster import RecipeCluster
+from model.transform import Transform
 
-class KMeans_Clustering:
-    def __init__(self, newData: RecipeCluster):
-        oldData = pd.read_csv('../data/save-ok.csv')
-        newPd = pd.DataFrame([newData])
+class KMeansClustering(Transform):
+    def __init__(self, new_data: RecipeCluster):
+        super().__init__(new_data)
 
-        oldData = pd.concat([oldData, newPd], ignore_index=True)
+        with open('./pickle/kmeans_model.pkl', 'rb') as file:
+            self.model = pickle.load(file)
+        
+        self.encode_provinces()
 
-        return oldData[1]
-
+    def predict(self):
+        normalized_data = self.normalize_data()
+        return self.model.predict(normalized_data)
