@@ -1,4 +1,6 @@
 import Footer from "../components/Footer";
+import ChartPages from "./components/ChartPages";
+
 import Header from "./components/Header";
 
 import Information from "./components/Information";
@@ -36,19 +38,20 @@ export default function Pages() {
           </div>
         </div>
 
-        <div className="p-10">
-          <h1 className="text-lg lg:text-2xl text-[#021716] font-bold py-3 lg:py-6">
-            History of Earthquake Activity
-          </h1>
-          <div className="grid lg:grid-cols-2">
-            <div className="order-1 lg:order-2">Cek</div>
-            <p className="order-2 lg:order-1">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-              obcaecati iste itaque dicta molestias. Magni cupiditate labore
-              voluptatum ipsa quis quasi cum odio! Cumque temporibus fugiat quos
-              ipsam, rerum dolorum.
+        <div className="grid lg:grid-cols-2 p-10 gap-10">
+          <div>
+            <h1 className="text-xl lg:text-3xl text-[#021716] font-bold py-3 lg:py-6">
+              History of Earthquake Activity
+            </h1>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam
+              voluptate voluptatibus temporibus rem commodi quos omnis quam
+              soluta labore error enim doloremque dolores quas quidem, eum
+              veritatis tempore suscipit in!
             </p>
           </div>
+
+          <ChartPages />
         </div>
         <Footer />
       </main>

@@ -6,24 +6,22 @@ from schemas.cluster import RecipeCluster
 class Transform:
     def __init__(self, new_data: RecipeCluster):
         self.data = pd.read_csv('./data/dataset-with-label.csv')
-        self.data.drop('prov_enco', axis=1, inplace=True)
-        self.mapLoc = {}
+        self.new_data = pd.DataFrame([new_data.dict()])
 
-        self.add_new_data(new_data)
+        self.prov_mapping = dict(zip(self.data['prov'], self.data['prov_enco']))
+        self.max_encoded_value = self.data['prov_enco'].max()
+        
+        self.new_data['prov_enco'] = self.new_data.apply(self.encode_provinces, axis=1)
     
-    def add_new_data(self, new_data: RecipeCluster):
-        new_df = pd.DataFrame([new_data.dict()])
-        self.data = pd.concat([self.data, new_df], ignore_index=True)
+    def add_new_data(self, method, cluster):
+        self.new_data[method] = cluster
+        self.data = pd.concat([self.data, self.new_data], ignore_index=True)
+        self.data.to_csv('./data/dataset-with-label.csv', index=False)
 
-    def encode_provinces(self):
-        unique_locs = self.data['prov'].unique()
-        self.mapLoc = {prov: i + 1 for i, prov in enumerate(unique_locs)}
-        self.data['prov_enco'] = self.data['prov'].map(self.mapLoc)
+    def encode_provinces(self, row):
+        if row['prov'] in self.prov_mapping:
+            return self.prov_mapping[row['prov']]
+        else:
+            self.max_encoded_value += 1
+            return self.max_encoded_value
 
-    def normalize_data(self):
-        features = ['mag', 'depth', 'rad', 'lat', 'lon', 'prov_enco']
-        last_row = self.data.iloc[-1:][features]
-        normalizer = Normalizer()
-        normalized_data = normalizer.fit_transform(last_row)
-
-        return normalized_data

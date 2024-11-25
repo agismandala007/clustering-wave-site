@@ -11,13 +11,13 @@ export default [
 
   {
     img: MAP,
-    header: "Support with Chart",
-    text: "Easy to analyze because a result have pie chart, diagram chart, and etc.",
+    header: "Anaylze in Map",
+    text: "Make it easy to look or analyze prov because you can look it up in map.",
   },
 
   {
     img: KEY,
-    header: "Support with Chart",
-    text: "Easy to analyze because a result have pie chart, diagram chart, and etc.",
+    header: "No Need to Login",
+    text: "Don't have to login or signup for using this web app.",
   },
 ];

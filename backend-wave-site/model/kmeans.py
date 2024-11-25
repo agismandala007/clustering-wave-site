@@ -9,9 +9,11 @@ class KMeansClustering(Transform):
 
         with open('./pickle/kmeans_model.pkl', 'rb') as file:
             self.model = pickle.load(file)
-        
-        self.encode_provinces()
 
     def predict(self):
-        normalized_data = self.normalize_data()
-        return self.model.predict(normalized_data)
+        features = ['mag', 'depth', 'rad', 'prov_enco', 'lat', 'lon']
+
+        result = self.model.predict(self.new_data[features])
+        self.add_new_data('kmeans', result[0])
+
+        return result

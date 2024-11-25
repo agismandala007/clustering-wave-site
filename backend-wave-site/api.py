@@ -15,6 +15,8 @@ def postKmeans(items: RecipeCluster):
     return {
         'status': "200",
         'data': {
+            'method': 'kmeans',
+            # 'data': data,
             'cluster': labels.tolist()
         }
     }
@@ -28,6 +30,8 @@ def postKmedoids(items: RecipeCluster):
     return {
         'status': "200",
         'data': {
+            'method': 'kmedoids',
+            # 'data': data,
             'cluster': labels.tolist()
         }
     }
