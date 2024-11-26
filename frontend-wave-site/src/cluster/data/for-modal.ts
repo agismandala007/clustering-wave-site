@@ -1,0 +1,27 @@
+export default [
+  {
+    cluster: "Cluster 0",
+    trait: "Earthquake with a lower magnitude and a relatively shallow depth.",
+    strategies:
+      "Monitoring small earthquakes that occur in the region regularly to detect changes in seismic activity patterns that may be developing.",
+  },
+  {
+    cluster: "Cluster 1",
+    trait: "Earthquake with a relatively high magnitude and a varied depth.",
+    strategies:
+      "Considering significant earthquakes with depths that can affect wide areas, as well as the distribution patterns of earthquakes occurring in that region.",
+  },
+  {
+    cluster: "Cluster 2",
+    trait:
+      "Earthquakes with varying magnitudes, but with depths that tend to be deeper compared to other clusters.",
+    strategies:
+      "Focus on monitoring deeper earthquakes and understanding their potential impact on the vulnerability of structures and populations in the area.",
+  },
+  {
+    cluster: "Cluster 3",
+    trait: "Earthquakes with highly variable magnitudes and depths.",
+    strategies:
+      "Monitor earthquakes with moderate magnitudes that may indicate significant seismic activity in the area, while also considering the periodic patterns of earthquakes that occur.",
+  },
+];

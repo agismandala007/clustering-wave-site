@@ -7,7 +7,7 @@ type Props = {
 export default function ImageSide({ image, title, text }: Props) {
   return (
     <div
-      className="w-[86%] h-full text-white hidden lg:flex rounded-2xl"
+      className="w-[86%] h-full text-white lg:flex hidden rounded-2xl"
       style={{
         backgroundImage: `url(${image})`,
         backgroundSize: "cover",

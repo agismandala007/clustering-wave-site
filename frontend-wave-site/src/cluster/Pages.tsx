@@ -19,22 +19,23 @@ export default function Pages() {
   return (
     <>
       <Navbar />
+      <main>
+        <div className="flex h-screen py-4 lg:p-10 lg:px-36 gap-7">
+          <FormSide
+            title={data[selected].label}
+            text={data[selected].text}
+            handler={handlerButton}
+            selected={selected}
+          />
 
-      <div className="flex h-screen py-4 lg:p-10 lg:px-36 gap-7">
-        <FormSide
-          title={data[selected].label}
-          text={data[selected].text}
-          handler={handlerButton}
-          selected={selected}
-        />
-
-        <ImageSide
-          image={data[selected].image}
-          title={data[selected].label}
-          text={data[selected].text}
-        />
-      </div>
-      <Footer />
+          <ImageSide
+            image={data[selected].image}
+            title={data[selected].label}
+            text={data[selected].text}
+          />
+        </div>
+        <Footer />
+      </main>
     </>
   );
 }
