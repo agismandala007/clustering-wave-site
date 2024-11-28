@@ -33,6 +33,7 @@ const defaultInput: InputType = {
 export default function FormSide({ title, text, handler, selected }: Props) {
   const [cluster, setCluster] = useState<number>();
   const [input, setInput] = useState<InputType>(defaultInput);
+  const [isFormDefault, setIsFromDefalut] = useState<boolean>(false);
 
   const dialog = useRef<ResultModalRef>(null);
 
@@ -57,7 +58,14 @@ export default function FormSide({ title, text, handler, selected }: Props) {
   }
 
   function isDefaultInput() {
-    return JSON.stringify(input) === JSON.stringify(defaultInput);
+    return (
+      input.mag === defaultInput.mag ||
+      input.depth === defaultInput.depth ||
+      input.rad === defaultInput.rad ||
+      input.lat === defaultInput.lat ||
+      input.lon === defaultInput.lon ||
+      input.prov === defaultInput.prov
+    );
   }
 
   async function handlerForm() {
@@ -66,7 +74,8 @@ export default function FormSide({ title, text, handler, selected }: Props) {
       type = "kmedoids";
     }
 
-    if (isDefaultInput()) {
+    if (!isDefaultInput()) {
+      setIsFromDefalut(false);
       try {
         const response = await fetch(`http://localhost:8000/api/${type}`, {
           method: "POST",
@@ -90,6 +99,8 @@ export default function FormSide({ title, text, handler, selected }: Props) {
       } catch (error) {
         console.error("Error:", error);
       }
+    } else {
+      setIsFromDefalut(true);
     }
   }
 
@@ -138,6 +149,7 @@ export default function FormSide({ title, text, handler, selected }: Props) {
             placeholder={formInput.placeholder}
             value={input[formInput.name as InputKeys]}
             onChange={handlerInput}
+            isDefault={isFormDefault}
           />
         ))}
 
