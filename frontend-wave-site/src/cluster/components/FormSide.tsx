@@ -5,20 +5,16 @@ import { useEffect, useRef, useState } from "react";
 
 import Modal, { ResultModalRef } from "./Modal";
 
+import { InputType } from "../types/type";
+import { NewCluster } from "../http";
+import { ResultClusterType } from "../types/cluster";
+import ButtonForm from "./ButtonForm";
+
 type Props = {
   title: string;
   text: string;
   handler: () => void;
   selected: number;
-};
-
-type InputType = {
-  mag: number;
-  depth: number;
-  rad: number;
-  lat: number;
-  lon: number;
-  prov: string;
 };
 
 const defaultInput: InputType = {
@@ -31,7 +27,7 @@ const defaultInput: InputType = {
 };
 
 export default function FormSide({ title, text, handler, selected }: Props) {
-  const [cluster, setCluster] = useState<number>();
+  const [cluster, setCluster] = useState<ResultClusterType>();
   const [input, setInput] = useState<InputType>(defaultInput);
   const [isFormDefault, setIsFromDefalut] = useState<boolean>(false);
 
@@ -76,63 +72,34 @@ export default function FormSide({ title, text, handler, selected }: Props) {
 
     if (!isDefaultInput()) {
       setIsFromDefalut(false);
-      try {
-        const response = await fetch(`http://localhost:8000/api/${type}`, {
-          method: "POST",
-          body: JSON.stringify(input),
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
+      const result = await NewCluster(input, type);
+      setCluster(result);
 
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || "Failed to fetch data");
-        }
-
-        dialog.current?.open();
-        const resData = await response.json();
-
-        setCluster(resData.data.cluster);
-
-        return resData.data;
-      } catch (error) {
-        console.error("Error:", error);
-      }
+      dialog.current?.open();
     } else {
       setIsFromDefalut(true);
     }
   }
 
   function onReset() {
-    setCluster(4);
+    setCluster(undefined);
     dialog.current?.close();
   }
 
   return (
     <div className="flex flex-col bg-[#F5F9F9] drop-shadow-lg p-6 lg:p-10 mb-10 h-full w-[86%] rounded-2xl mx-auto lg:justify-self-end">
-      <Modal ref={dialog} cluster={`Cluster ${cluster}`} onChange={onReset} />
+      <Modal ref={dialog} cluster={cluster} onChange={onReset} />
       <div className="flex rounded-full bg-white w-fit font-bold text-xs lg:text-base px-5 gap-7 mx-auto">
-        <button
-          className={
-            selected === 0
-              ? `bg-[#032F2F] text-white py-2 px-4 rounded-full`
-              : undefined
-          }
-          onClick={handler}
-        >
-          K-Means
-        </button>
-        <button
-          className={
-            selected === 1
-              ? `bg-[#032F2F] text-white py-2 px-4 rounded-full`
-              : undefined
-          }
-          onClick={handler}
-        >
-          K-Medoids
-        </button>
+        <ButtonForm
+          selected={selected === 0}
+          handler={handler}
+          text="K-Means"
+        />
+        <ButtonForm
+          selected={selected === 1}
+          handler={handler}
+          text="K-Medoids"
+        />
       </div>
 
       <h1 className="font-extrabold text-xl lg:text-3xl py-2 lg:py-4">

@@ -10,10 +10,14 @@ class KMedoidsClustering(Transform):
         with open('./pickle/kmedoids_model.pkl', 'rb') as file:
             self.model = pickle.load(file)
 
+        with open('./data/kmedoids.json', 'r') as file:
+            self.cluster = json.load(file)
+
     def predict(self):
         features = ['mag', 'depth', 'rad', 'prov_enco', 'lat', 'lon']
 
-        result = self.model.predict(self.new_data[features])
-        self.add_new_data('kmedoids', result[0])
+        new_predict = self.model.predict(self.new_data[features])
+        self.add_new_data('kmedoids', new_predict[0])
 
-        return result
+
+        return self.cluster[new_predict[0]]

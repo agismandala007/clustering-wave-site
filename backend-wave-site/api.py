@@ -25,8 +25,7 @@ async def postKmeans(items: RecipeCluster):
         'status': "200",
         'data': {
             'method': 'kmeans',
-            # 'data': data,
-            'cluster': labels.tolist()
+            'data': labels
         }
     }
 
@@ -40,7 +39,6 @@ async def postKmedoids(items: RecipeCluster):
         'status': "200",
         'data': {
             'method': 'kmedoids',
-            # 'data': data,
-            'cluster': labels.tolist()
+            'cluster': labels
         }
     }

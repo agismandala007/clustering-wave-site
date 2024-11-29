@@ -1,10 +1,10 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { createPortal } from "react-dom";
 
-import DATA from "../data/for-modal";
+import { ResultClusterType } from "../types/cluster";
 
 type Props = {
-  cluster: any;
+  cluster?: ResultClusterType;
   onChange: () => void;
 };
 
@@ -32,7 +32,7 @@ const Modal = forwardRef<ResultModalRef, Props>(function Modal(
     },
   }));
 
-  const get = DATA.find((data) => data.cluster === cluster);
+  console.log(cluster);
 
   return createPortal(
     <dialog
@@ -57,15 +57,15 @@ const Modal = forwardRef<ResultModalRef, Props>(function Modal(
           </svg>
         </button>
       </form>
-      {get && (
+      {cluster && (
         <div className="mt-5 p-5">
-          <h1 className="font-extrabold text-2xl ">{get.cluster}</h1>
+          <h1 className="font-extrabold text-2xl ">{cluster.cluster}</h1>
           <div className="grid lg:grid-cols-[1fr_5fr] gap-5 bg-[#F5F9F9] drop-shadow-lg rounded-lg text-black p-5">
             <h1 className="font-semibold text-lg">Trait: </h1>
-            <p>{get.trait}</p>
+            <p>{cluster.trait}</p>
 
             <h1 className="font-semibold text-lg">Strategies: </h1>
-            <p>{get.strategies}</p>
+            <p>{cluster.strategies}</p>
           </div>
         </div>
       )}
