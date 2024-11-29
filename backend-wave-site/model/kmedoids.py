@@ -1,4 +1,5 @@
 import pickle
+import json
 from sklearn_extra.cluster import KMedoids
 from schemas.cluster import RecipeCluster
 from model.transform import Transform

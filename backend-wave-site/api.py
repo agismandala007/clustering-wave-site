@@ -39,6 +39,6 @@ async def postKmedoids(items: RecipeCluster):
         'status': "200",
         'data': {
             'method': 'kmedoids',
-            'cluster': labels
+            'data': labels
         }
     }

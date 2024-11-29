@@ -1,14 +1,14 @@
-import Input from "./Input";
+import Input from "../components/Input";
 
 import data from "../data/for-input";
 import { useEffect, useRef, useState } from "react";
 
-import Modal, { ResultModalRef } from "./Modal";
+import Modal, { ResultModalRef } from "../components/Modal";
 
 import { InputType } from "../types/type";
 import { NewCluster } from "../http";
 import { ResultClusterType } from "../types/cluster";
-import ButtonForm from "./ButtonForm";
+import ButtonForm from "../components/ButtonForm";
 
 type Props = {
   title: string;
@@ -87,7 +87,7 @@ export default function FormSide({ title, text, handler, selected }: Props) {
   }
 
   return (
-    <div className="flex flex-col bg-[#F5F9F9] drop-shadow-lg p-6 lg:p-10 mb-10 h-full w-[86%] rounded-2xl mx-auto lg:justify-self-end">
+    <div className="overflow-auto flex flex-col bg-[#F5F9F9] drop-shadow-lg p-6 lg:p-10 mb-10 h-full w-[86%] rounded-2xl mx-auto lg:justify-self-end">
       <Modal ref={dialog} cluster={cluster} onChange={onReset} />
       <div className="flex rounded-full bg-white w-fit font-bold text-xs lg:text-base px-5 gap-7 mx-auto">
         <ButtonForm
@@ -102,14 +102,17 @@ export default function FormSide({ title, text, handler, selected }: Props) {
         />
       </div>
 
-      <h1 className="font-extrabold text-xl lg:text-3xl py-2 lg:py-4">
-        {title}
-      </h1>
-      <p className="font-light text-sm">{text}</p>
+      <div>
+        <h1 className="font-extrabold text-xl lg:text-3xl py-2 lg:py-4">
+          {title}
+        </h1>
+        <p className="font-light text-sm">{text}</p>
+      </div>
 
       <div className="flex flex-col flex-wrap my-auto">
         {data.map((formInput) => (
           <Input
+            key={formInput.name}
             label={formInput.label}
             name={formInput.name}
             type={formInput.type}

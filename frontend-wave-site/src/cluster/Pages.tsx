@@ -1,11 +1,12 @@
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import ImageSide from "./components/ImageSide";
+import ImageSide from "./layout/ImageSide";
 
 import data from "./data/for-layout";
 
-import FormSide from "./components/FormSide";
+import FormSide from "./layout/FormSide";
 import { useState } from "react";
+import FormContext from "./context/FormContext";
 
 export default function Pages() {
   const [selected, setSelected] = useState<number>(0);
@@ -19,7 +20,7 @@ export default function Pages() {
   return (
     <>
       <Navbar />
-      <main>
+      <FormContext>
         <div className="flex h-screen py-4 lg:p-10 lg:px-36 gap-7">
           <FormSide
             title={data[selected].label}
@@ -35,7 +36,7 @@ export default function Pages() {
           />
         </div>
         <Footer />
-      </main>
+      </FormContext>
     </>
   );
 }
