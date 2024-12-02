@@ -1,6 +1,6 @@
-import { InputType } from "./types/type";
+import { FormInputType } from "./types/FormInputType";
 
-export async function NewCluster(input: InputType, type: string) {
+export async function NewCluster(input: FormInputType, type: string) {
   try {
     const response = await fetch(`http://localhost:8000/api/${type}`, {
       method: "POST",

@@ -1,7 +1,7 @@
 import { forwardRef, useImperativeHandle, useRef } from "react";
 import { createPortal } from "react-dom";
 
-import { ResultClusterType } from "../types/cluster";
+import { ResultClusterType } from "../types/ClusterType";
 
 type Props = {
   cluster?: ResultClusterType;
@@ -31,8 +31,6 @@ const Modal = forwardRef<ResultModalRef, Props>(function Modal(
       }
     },
   }));
-
-  console.log(cluster);
 
   return createPortal(
     <dialog

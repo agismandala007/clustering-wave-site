@@ -1,6 +1,7 @@
 import { useState } from "react";
 import ListNavbar from "./ListNavbar";
 import { useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState<boolean>(false);
@@ -15,7 +16,7 @@ export default function Navbar() {
   return (
     <div className=" text-white p-5 lg:py-8 lg:px-16 font-bold items-center">
       <div className="grid grid-cols-2">
-        <div className="flex items-center">
+        <NavLink to="/" className="flex items-center">
           <svg
             width="39"
             height="39"
@@ -33,7 +34,7 @@ export default function Navbar() {
           <h1 className={`text-base ml-3 lg:text-2xl lg:ml-4 text-[${colors}]`}>
             Cluster Wave Site
           </h1>
-        </div>
+        </NavLink>
 
         <button
           onClick={handlerDropdown}
@@ -53,13 +54,21 @@ export default function Navbar() {
         <div
           className={`lg:flex justify-self-end  lg:text-xl ${
             isDropdownOpen
-              ? `block absolute z-10 flex-col mt-12 right-2 rounded-md shadow-md bg-[#6BA3BE] p-2`
+              ? `block absolute z-10 flex-col mt-12 right-2 rounded-md shadow-md bg-[#032F2F] p-2`
               : "hidden"
           } lg:block`}
         >
-          <ListNavbar path="/" label="Home" />
-          <ListNavbar path="/cluster" label="Cluster" />
-          <ListNavbar path="/about" label="About Me" />
+          <ListNavbar path="/" label="Home" dropdown={isDropdownOpen} />
+          <ListNavbar
+            path="/cluster"
+            label="Cluster"
+            dropdown={isDropdownOpen}
+          />
+          <ListNavbar
+            path="/about"
+            label="About Me"
+            dropdown={isDropdownOpen}
+          />
         </div>
       </div>
 

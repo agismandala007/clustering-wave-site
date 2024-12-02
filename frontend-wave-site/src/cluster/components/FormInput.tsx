@@ -1,45 +1,67 @@
-export default function FormInput() {
-  const labelStyle: string = "text-[#031716] font-semibold";
-  const inputStyle: string = "rounded-sm border-b-2 border-[#031716] text-xl";
+import { FormEvent, useContext, useEffect, useState, Fragment } from "react";
+import DATAFORM from "../data/InputData";
+import Input from "./Input";
+import { ClusterContext } from "../context/ClusterContextProvider";
+import { FormInputType } from "../types/FormInputType";
+
+type Props = {
+  method: number;
+};
+
+type LatLonType = {
+  lat: number;
+  lon: number;
+};
+
+export default function FormInput({ method }: Props) {
+  const [latLon, setLatlon] = useState<LatLonType>();
+  const { doCluster } = useContext(ClusterContext);
+
+  useEffect(() => {
+    navigator.geolocation.getCurrentPosition((position) => {
+      setLatlon((prev) => ({
+        ...prev,
+        ["lat"]: position.coords.latitude,
+        ["lon"]: position.coords.longitude,
+      }));
+    });
+  }, []);
+
+  function handlerSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const formData = new FormData(event.currentTarget);
+    const data = Object.fromEntries(formData.entries());
+
+    const newTypedData: FormInputType = {
+      mag: parseFloat(data.mag as string),
+      depth: parseFloat(data.depth as string),
+      rad: parseFloat(data.rad as string),
+      lat: parseFloat(data.lat as string),
+      lon: parseFloat(data.lon as string),
+      prov: data.prov as string,
+    };
+
+    doCluster(newTypedData, method);
+  }
 
   return (
-    <form action="" className="flex flex-col flex-wrap gap-3">
-      <label htmlFor="mag" className={labelStyle}>
-        Magnitude:
-      </label>
-      <input className={inputStyle} type="number" name="mag" id="mag" />
+    <form onSubmit={handlerSubmit} className="flex flex-col flex-wrap my-auto">
+      {DATAFORM.map((formInput) => (
+        <Fragment key={formInput.name}>
+          {formInput.name === "lat" || formInput.name === "lon" ? (
+            <Input data={formInput} value={latLon && latLon[formInput.name]} />
+          ) : (
+            <Input data={formInput} />
+          )}
+        </Fragment>
+      ))}
 
-      <label htmlFor="depth" className={labelStyle}>
-        Depth:
-      </label>
-      <input className={inputStyle} type="number" name="mag" id="mag" />
-
-      <label htmlFor="rad" className={labelStyle}>
-        Distance:
-      </label>
-      <input className={inputStyle} type="number" name="rad" id="rad" />
-
-      <label htmlFor="lat" className={labelStyle}>
-        Latitude:
-      </label>
-      <input className={inputStyle} type="number" name="lat" id="lat" />
-
-      <label htmlFor="lon" className={labelStyle}>
-        Longitude:
-      </label>
-      <input className={inputStyle} type="number" name="lon" id="lon" />
-
-      <label htmlFor="prov" className={labelStyle}>
-        Province:
-      </label>
-      <input className={inputStyle} type="text" name="prov" id="prov" />
-
-      <button
-        type="submit"
-        className="bg-[#031716] text-white w-fit py-2 px-3 rounded-lg"
-      >
-        Cluster
-      </button>
+      <div className="flex justify-end mt-3 py-2">
+        <button className="text-white bg-[#032F2F] w-1/3 py-3 rounded-xl font-semibold">
+          Cluster
+        </button>
+      </div>
     </form>
   );
 }

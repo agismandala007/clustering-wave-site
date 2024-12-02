@@ -1,35 +1,20 @@
+import { InputType } from "../data/InputData";
+
 type Props = {
-  label: string;
-  name: string;
-  type: string;
-  placeholder: string;
-  value: string | number;
-  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-  isDefault: boolean;
+  data: InputType;
+  value?: number;
 };
 
-export default function Input({
-  label,
-  name,
-  type,
-  value,
-  placeholder,
-  onChange,
-  isDefault,
-}: Props) {
+export default function Input({ data, value }: Props) {
   return (
     <div className="flex flex-col py-2">
-      <label className={`font-semibold p-2 `}>{label}</label>
+      <label className="font-semibold p-2">{data.label}</label>
       <input
-        type={type}
-        name={name}
-        placeholder={placeholder}
-        value={value}
-        className={`rounded-md border-b-2 text-lg w-full pl-3 ${
-          isDefault && "border-2 border-red-600"
-        }`}
-        onChange={onChange}
-        readOnly={name === "lat" || name === "lon"}
+        type={data.type}
+        name={data.name}
+        placeholder={data.placeholder}
+        defaultValue={value && value}
+        className="rounded-md border-b-2 border-[#032F2F] text-lg w-full pl-3"
         required
       />
     </div>

@@ -11,7 +11,7 @@ export default function Pages() {
     <>
       <Header />
       <main>
-        <div className="z-10 flex flex-col bg-white shadow-xl rounded-lg lg:rounded-2xl mt-[-50px] w-[90%] mx-auto h-fit p-10 lg:p-16">
+        <div className="z-10 flex flex-col bg-white shadow-xl rounded-lg lg:rounded-2xl mt-[-50px] w-[80%] lg:w-[90%] mx-auto h-fit p-10 lg:p-16">
           <div className="grid lg:grid-cols-2 lg:gap-7 items-center">
             <div>
               <p className="text-[#0B7176] text-xs lg:text-base lg:font-semibold">
@@ -39,7 +39,7 @@ export default function Pages() {
         </div>
 
         <div className="grid lg:grid-cols-2 p-10 gap-10">
-          <div>
+          <section>
             <h1 className="text-xl lg:text-3xl text-[#021716] font-bold py-3 lg:py-6">
               History of Earthquake Activity
             </h1>
@@ -49,7 +49,7 @@ export default function Pages() {
               soluta labore error enim doloremque dolores quas quidem, eum
               veritatis tempore suscipit in!
             </p>
-          </div>
+          </section>
 
           <ChartPages />
         </div>

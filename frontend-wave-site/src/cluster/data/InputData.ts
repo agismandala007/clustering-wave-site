@@ -1,3 +1,10 @@
+export type InputType = {
+  label: string;
+  name: string;
+  type: string;
+  placeholder: string;
+};
+
 export default [
   {
     label: "Magnitude:",

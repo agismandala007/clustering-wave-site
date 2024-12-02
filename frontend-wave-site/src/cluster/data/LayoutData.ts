@@ -1,6 +1,12 @@
 import KMEDOIDSIMAGES from "../../assets/img/final-kmedoids.jpg";
 import KMEANSIMAGES from "../../assets/img/kmeans-images.jpg";
 
+export type DataType = {
+  image: string;
+  label: string;
+  text: string;
+};
+
 export default [
   {
     image: KMEANSIMAGES,

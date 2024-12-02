@@ -1,23 +1,23 @@
+import { DataType } from "../data/LayoutData";
+
 type Props = {
-  image: string;
-  title: string;
-  text: string;
+  data: DataType;
 };
 
-export default function ImageSide({ image, title, text }: Props) {
+export default function ImageSide({ data }: Props) {
   return (
-    <div
+    <section
       className="w-[86%] h-full text-white lg:flex hidden rounded-2xl"
       style={{
-        backgroundImage: `url(${image})`,
+        backgroundImage: `url(${data.image})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
     >
       <div className="m-10 flex flex-col justify-end">
-        <h1 className="font-bold text-3xl ">{title}</h1>
-        <p>{text}</p>
+        <h1 className="font-bold text-3xl ">{data.label}</h1>
+        <p>{data.text}</p>
       </div>
-    </div>
+    </section>
   );
 }

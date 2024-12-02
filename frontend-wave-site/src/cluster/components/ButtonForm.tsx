@@ -7,9 +7,9 @@ type Props = {
 export default function ButtonForm({ handler, text, selected }: Props) {
   return (
     <button
-      className={
-        selected ? `bg-[#032F2F] text-white py-2 px-4 rounded-full` : undefined
-      }
+      className={`py-2 px-4 ${
+        selected ? "bg-[#032F2F] text-white rounded-full" : undefined
+      }`}
       onClick={handler}
     >
       {text}

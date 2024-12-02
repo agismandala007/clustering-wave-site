@@ -1,4 +1,4 @@
-import Chart, { CategoryScale } from "chart.js/auto";
+import Chart, { CategoryScale, ChartOptions } from "chart.js/auto";
 import { Line, Pie } from "react-chartjs-2";
 
 Chart.register(CategoryScale);
@@ -25,11 +25,25 @@ export default function CustomChart({ mode, propsData }: Props) {
     ],
   };
 
+  const pieOption: ChartOptions<"pie"> = {
+    plugins: {
+      legend: {
+        position: "right",
+        labels: {
+          usePointStyle: true,
+          pointStyle: "circle",
+        },
+      },
+    },
+  };
+
   return (
     <>
-      {mode === "activity" && <Line data={data} />}
-      {mode === "kmeans" && <Pie data={data} />}
-      {mode === "kmedoids" && <Pie data={data} />}
+      {mode === "activity" ? (
+        <Line data={data} />
+      ) : (
+        <Pie data={data} options={pieOption} />
+      )}
     </>
   );
 }

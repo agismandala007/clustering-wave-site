@@ -64,7 +64,7 @@ export default function ChartPages() {
 
   return (
     <div className="bg-white drop-shadow-xl">
-      <div className="mx-4 mb-2">
+      <div className="mx-6 my-5">
         <select
           className="font-Inter mt-1 p-2 border border-gray-300 rounded-md w-full"
           value={select}
@@ -76,7 +76,11 @@ export default function ChartPages() {
         </select>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center mt-6 p-3 lg:p-10 h-[250px] lg:h-[450px]">
+      <div
+        className={`flex justify-center px-3 py-2 lg:px-8 lg:py-6 ${
+          select !== "activity" && "h-[250px] lg:h-[450px]"
+        }`}
+      >
         <CustomChart mode={select} propsData={chartData} />
       </div>
     </div>
