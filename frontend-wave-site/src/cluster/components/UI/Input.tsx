@@ -1,4 +1,4 @@
-import { InputType } from "../data/InputData";
+import { InputType } from "../../data/InputData";
 
 type Props = {
   data: InputType;
@@ -13,7 +13,7 @@ export default function Input({ data, value }: Props) {
         type={data.type}
         name={data.name}
         placeholder={data.placeholder}
-        defaultValue={value && value}
+        defaultValue={value}
         className="rounded-md border-b-2 border-[#032F2F] text-lg w-full pl-3"
         required
       />

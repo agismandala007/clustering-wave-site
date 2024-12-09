@@ -1,22 +1,59 @@
 [
   {
     "cluster": "Cluster 0",
-    "trait": "Earthquake with a lower magnitude and a relatively shallow depth.",
-    "strategies": "Monitoring small earthquakes that occur in the region regularly to detect changes in seismic activity patterns that may be developing."
+    "trait": [
+      "Memiliki magnitude kecil dengan kekuatan dari 2.7 sampai dengan 4.0 SR.",
+      "Kedalaman yang sangat dangkal berkisar antara 10 sampai 37 KM.",
+      "Jarak yang cukup sedang dari pusat gempa berkisar antara 12 sampai 55 KM.",
+      "Beberapa provinsi yang berada pada cluster ini antara lain Sulawesi Tengah, Nusa Tenggara Timur, dan lain-lain."
+    ],
+    "strategies": [
+      "Dengan memperkuat bangunan dan infrastuktur di daerah yang berpotensi terkena gempa.",
+      "Memberikan pendidikan kepada masyarakat tentang tindakan yang benar saat terjadi gempa bumi.",
+      "Meningkatkan sistem peringatan dini untuk gempa bumi dengan fokus pada jarak yang sedang."
+    ]
   },
+
   {
     "cluster": "Cluster 1",
-    "trait": "Earthquake with a relatively high magnitude and a varied depth.",
-    "strategies": "Considering significant earthquakes with depths that can affect wide areas, as well as the distribution patterns of earthquakes occurring in that region."
+    "trait": [
+      "Magnitude yang cukup kecil berkisar antara 2.5 sampai dengan 4.7 SR.",
+      "Memiliki kedalaman berkisar antara 59 sampai 200 KM.",
+      "Cakupan jarak yang cukup sedang dari pusat gempa, berkisar antara 3 sampai 180 KM.",
+      "Beberapa provinsi yang berada pada cluster ini antara lain Sumatera Utara, Maluku, dan lain-lain."
+    ],
+    "strategies": [
+      "Memantau dan menganalisis aktivitas gempa bumi secara terus menerus.",
+      "Melakukan sosialisasi tindakan mitigasi kepada masyarakat terkait gempa dengan kedalaman dangkal.",
+      "Meningkatkan ketersediaan fasilitas evakuasi dan pertolongan medis."
+    ]
   },
   {
     "cluster": "Cluster 2",
-    "trait": "Earthquakes with varying magnitudes, but with depths that tend to be deeper compared to other clusters.",
-    "strategies": "Focus on monitoring deeper earthquakes and understanding their potential impact on the vulnerability of structures and populations in the area."
+    "trait": [
+      "Dengan magnitude yang masih terbilang kecil, berkisar antara 3.0 sampai dengan 5.0 SR.",
+      "Memiliki kedalaman yang dangkal berkisar antara 10 sampai 14 KM.",
+      "Cakupan jarak yang cukup jauh dari pusat gempa berkisar antara 74 sampai 129 KM.",
+      "beberapa provinsi yang berada pada cluster ini antara lain Lampung, Gorontalo, dan lain-lain."
+    ],
+    "strategies": [
+      "Dengan mengedukasi masyarakat tentang tindakan cepat pada saat gempa bumi terjadi.",
+      "Memperkuat kerjasama antar sektor untuk respons cepat terhadap gempa bumi.",
+      "Persiapan fasilitas evakuasi dan pertolongan medis yang memadai.."
+    ]
   },
   {
     "cluster": "Cluster 3",
-    "trait": "Earthquakes with highly variable magnitudes and depths.",
-    "strategies": "Monitor earthquakes with moderate magnitudes that may indicate significant seismic activity in the area, while also considering the periodic patterns of earthquakes that occur."
+    "trait": [
+      "Memiliki magnitude yang sedang berkisar antara 3.1 sampai dengan 6.0 SR.",
+      "Kedalaman yang cukup dangkal berkisar antara 10 sampai 166 KM.",
+      "Cakupan jarak yang cukup jauh dari pusat gempa bumi, dengan jarak 177 sampai 490 KM.",
+      "Beberapa provinsi yang berada pada cluster ini antara lain Sulawesi Utara, Banten, dan lain-lain."
+    ],
+    "strategies": [
+      "Dengan mengembangkan perencanaan evakuasi yang terkoordinasi dengan baik.",
+      "Pelatihan tim tanggap darurat untuk penanganan gempa bumi pada jarak jauh.",
+      "Penguatan infrastruktur kritis di daerah yang cakupan jaraknya cukup jauh dari pusat gempa."
+    ]
   }
 ]
