@@ -1,11 +1,10 @@
 import pandas as pd
 from schemas.cluster import RecipeCluster
-from sklearn.preprocessing import Normalizer
 from schemas.cluster import RecipeCluster
 
 class Transform:
     def __init__(self, new_data: RecipeCluster):
-        self.data = pd.read_csv('./data/dataset-with-label.csv')
+        self.data = pd.read_csv('./data/dataset.csv')
         self.new_data = pd.DataFrame([new_data.dict()])
 
         self.prov_mapping = dict(zip(self.data['prov'], self.data['prov_enco']))
@@ -16,7 +15,7 @@ class Transform:
     def add_new_data(self, method, cluster):
         self.new_data[method] = cluster
         self.data = pd.concat([self.data, self.new_data], ignore_index=True)
-        self.data.to_csv('./data/dataset-with-label.csv', index=False)
+        self.data.to_csv('./data/dataset.csv', index=False)
 
     def encode_provinces(self, row):
         if row['prov'] in self.prov_mapping:

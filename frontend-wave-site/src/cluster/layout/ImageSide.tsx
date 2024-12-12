@@ -7,7 +7,7 @@ type Props = {
 export default function ImageSide({ data }: Props) {
   return (
     <section
-      className="w-[86%] h-full text-white lg:flex hidden rounded-2xl"
+      className="w-[86%] lg:w-[30rem] h-full text-white lg:flex hidden rounded-2xl"
       style={{
         backgroundImage: `url(${data.image})`,
         backgroundSize: "cover",

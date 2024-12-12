@@ -1,10 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from pydantic import BaseModel
 from schemas.cluster import RecipeCluster
 from model.kmeans import KMeansClustering
 from model.kmedoids import KMedoidsClustering
-from model.transform import Transform
 
 app = FastAPI()
 

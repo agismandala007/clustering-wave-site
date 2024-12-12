@@ -4,7 +4,7 @@ type Props = {
   selected: boolean;
 };
 
-export default function ButtonForm({ handler, text, selected }: Props) {
+export default function ButtonSwitch({ handler, text, selected }: Props) {
   return (
     <button
       className={`py-2 px-4 ${

@@ -5,6 +5,7 @@ import { create } from "zustand";
 
 type State = {
   cluster: ResultClusterType;
+  method?: number;
   progress: string;
 };
 

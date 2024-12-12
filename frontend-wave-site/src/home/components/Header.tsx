@@ -3,24 +3,28 @@ import IMAGESHOME from "../../assets/img/home-images.png";
 import { Link } from "react-router-dom";
 
 export default function Header() {
-  let classesH1 = "text-5xl lg:text-8xl text-white font-extrabold";
+  let classesH1 = "text-3xl lg:text-5xl text-white font-extrabold";
 
   return (
     <header
-      className="bg-cover bg-no-repeat w-full h-[600px] lg:h-[800px]"
-      style={{ backgroundImage: `url(${IMAGESHOME})` }}
+      className="w-full h-full"
+      style={{
+        backgroundImage: `url(${IMAGESHOME})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
       <Navbar />
-      <div className="flex flex-col h-5/6 justify-evenly p-10 lg:p-24">
+      <div className="grid justify-self-center justify-between w-[80%] h-[55vh] py-24">
         <div>
           <h1 className={classesH1}>Earthquake</h1>
           <h1 className={classesH1}>Clustering</h1>
         </div>
 
-        <p className="text-base lg:text-lg text-white font-semibold">
+        <p className="text-base lg:text-lg text-white font-semibold w-80">
           A web application for earthquake clustering
         </p>
-        <button className="bg-[#031716] w-fit text-xs lg:text-base py-4 px-6 rounded-2xl text-white font-semibold">
+        <button className="bg-[#031716] w-fit h-fit text-xs lg:text-base p-3 lg:py-4 lg:px-6 rounded-lg lg:rounded-2xl text-white font-semibold">
           <Link to={"/cluster"}>Cluster Now</Link>
         </button>
       </div>

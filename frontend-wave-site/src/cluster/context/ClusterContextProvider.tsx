@@ -43,7 +43,7 @@ export default function ClusterContextProvider({ children }: Props) {
 
   return (
     <ClusterContext.Provider value={ctxValue}>
-      <div className="overflow-auto flex flex-col bg-[#F5F9F9] drop-shadow-lg p-6 lg:p-10 mb-10 h-full w-[86%] rounded-2xl mx-auto lg:justify-self-end">
+      <div>
         <Modal ref={dialog} cluster={cluster} onChange={onReset} />
         {children}
       </div>

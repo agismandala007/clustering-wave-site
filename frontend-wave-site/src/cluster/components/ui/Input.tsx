@@ -2,10 +2,9 @@ import { InputType } from "../../data/InputData";
 
 type Props = {
   data: InputType;
-  value?: number;
 };
 
-export default function Input({ data, value }: Props) {
+export default function Input({ data }: Props) {
   return (
     <div className="flex flex-col py-2">
       <label className="font-semibold p-2">{data.label}</label>
@@ -13,7 +12,6 @@ export default function Input({ data, value }: Props) {
         type={data.type}
         name={data.name}
         placeholder={data.placeholder}
-        defaultValue={value}
         className="rounded-md border-b-2 border-[#032F2F] text-lg w-full pl-3"
         required
       />
