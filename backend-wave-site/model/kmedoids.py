@@ -15,7 +15,7 @@ class KMedoidsClustering(Transform):
             self.cluster = json.load(file)
 
     def predict(self):
-        features = ['mag', 'depth', 'rad', 'prov_enco', 'lat', 'lon']
+        features = ['mag', 'depth']
 
         new_predict = self.model.predict(self.new_data[features])
         self.add_new_data('kmedoids', new_predict[0])

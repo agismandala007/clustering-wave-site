@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from schemas.cluster import RecipeCluster
 from model.kmeans import KMeansClustering
 from model.kmedoids import KMedoidsClustering
+from model.transform import Transform
 
 app = FastAPI()
 

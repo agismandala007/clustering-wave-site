@@ -1,17 +1,25 @@
-import { FormEvent, useContext } from "react";
+import { FormEvent, useState } from "react";
 import DATAFORM from "../data/InputData";
 import Input from "./ui/Input";
-import { ClusterContext } from "../context/ClusterContextProvider";
 import { FormInputType } from "../types/FormInputType";
+import { ClusterTypeStore } from "../store/ClusterTypeStore";
+import Modal from "./Modal";
+import { ModalStore } from "../store/ModalStore";
+import { NewCluster } from "../http";
+import { ResultClusterType } from "../types/ClusterType";
 
-type Props = {
-  method: number;
-};
+export default function FormInput() {
+  const [resultCluster, setResultCluster] = useState<ResultClusterType>({
+    cluster: "2",
+    trait: ["lorem", "lorem", "lorem"],
+    strategies:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias eligendi esse facilis ipsa nisi totam doloremque, nobis quae temporibus tempora possimus similique? Qui laboriosam possimus error corporis deserunt consequatur quisquam.",
+  });
 
-export default function FormInput({ method }: Props) {
-  const { doCluster } = useContext(ClusterContext);
+  const { clusterType } = ClusterTypeStore();
+  const { modal, show, hide } = ModalStore();
 
-  function handlerSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handlerSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
@@ -23,20 +31,41 @@ export default function FormInput({ method }: Props) {
       prov: formData.get("prov") as string,
     };
 
-    doCluster(newTypedData, method);
+    let methodType: string = "kmeans";
+    if (clusterType != 0) {
+      methodType = "kmedoids";
+    }
+    const result = await NewCluster(newTypedData, methodType);
+    setResultCluster(result);
+    show();
   }
 
-  return (
-    <form onSubmit={handlerSubmit} className="flex flex-col flex-wrap my-auto">
-      {DATAFORM.map((data) => (
-        <Input data={data} />
-      ))}
+  const openModal = modal === "open";
 
-      <div className="flex justify-end mt-3 py-2">
-        <button className="text-white bg-[#032F2F] w-1/3 py-3 rounded-xl font-semibold">
-          Cluster
-        </button>
-      </div>
-    </form>
+  return (
+    <>
+      <Modal
+        open={true}
+        onChange={openModal ? hide : undefined}
+        result={resultCluster}
+      />
+      <form
+        onSubmit={handlerSubmit}
+        className="flex flex-col flex-wrap my-auto"
+      >
+        {DATAFORM.map((data) => (
+          <Input data={data} />
+        ))}
+
+        <div className="flex justify-end mt-3 py-2">
+          <button
+            className="text-white bg-[#032F2F] w-1/3 py-3 rounded-xl font-semibold"
+            type="submit"
+          >
+            Cluster
+          </button>
+        </div>
+      </form>
+    </>
   );
 }

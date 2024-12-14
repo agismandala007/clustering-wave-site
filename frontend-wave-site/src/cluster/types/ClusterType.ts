@@ -1,5 +1,5 @@
 export type ResultClusterType = {
   cluster: string;
-  trait: string;
+  trait: string[];
   strategies: string;
 };

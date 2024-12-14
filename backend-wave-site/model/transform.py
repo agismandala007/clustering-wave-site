@@ -24,3 +24,5 @@ class Transform:
             self.max_encoded_value += 1
             return self.max_encoded_value
 
+    def load_data(self):
+        return self.data

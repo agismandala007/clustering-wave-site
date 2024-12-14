@@ -1,6 +1,6 @@
 [
   {
-    "cluster": "Cluster 0",
+    "cluster": "0",
     "trait": [
       "Memiliki magnitude kecil dengan kekuatan dari 2.7 sampai dengan 4.0 SR.",
       "Kedalaman yang sangat dangkal berkisar antara 10 sampai 37 KM.",
@@ -14,7 +14,7 @@
     ]
   },
   {
-    "cluster": "Cluster 1",
+    "cluster": "1",
     "trait": [
       "Memiliki magnitude yang sedang berkisar antara 3.1 sampai dengan 6.0 SR.",
       "Kedalaman yang cukup dangkal berkisar antara 10 sampai 166 KM.",
@@ -28,7 +28,7 @@
     ]
   },
   {
-    "cluster": "Cluster 2",
+    "cluster": "2",
     "trait": [
       "Magnitude yang cukup kecil berkisar antara 2.5 sampai dengan 4.7 SR.",
       "Memiliki kedalaman berkisar antara 59 sampai 200 KM.",
@@ -39,20 +39,6 @@
       "Memantau dan menganalisis aktivitas gempa bumi secara terus menerus.",
       "Melakukan sosialisasi tindakan mitigasi kepada masyarakat terkait gempa dengan kedalaman dangkal.",
       "Meningkatkan ketersediaan fasilitas evakuasi dan pertolongan medis."
-    ]
-  },
-  {
-    "cluster": "Cluster 3",
-    "trait": [
-      "Dengan magnitude yang masih terbilang kecil, berkisar antara 3.0 sampai dengan 5.0 SR.",
-      "Memiliki kedalaman yang dangkal berkisar antara 10 sampai 14 KM.",
-      "Cakupan jarak yang cukup jauh dari pusat gempa berkisar antara 74 sampai 129 KM.",
-      "beberapa provinsi yang berada pada cluster ini antara lain Lampung, Gorontalo, dan lain-lain."
-    ],
-    "strategies": [
-      "Dengan mengedukasi masyarakat tentang tindakan cepat pada saat gempa bumi terjadi.",
-      "Memperkuat kerjasama antar sektor untuk respons cepat terhadap gempa bumi.",
-      "Persiapan fasilitas evakuasi dan pertolongan medis yang memadai.."
     ]
   }
 ]

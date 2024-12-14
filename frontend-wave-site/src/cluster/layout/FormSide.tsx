@@ -33,7 +33,7 @@ export default function FormSide({ data }: Props) {
         <p className="font-light text-sm">{data.text}</p>
       </article>
 
-      <FormInput method={clusterType} />
+      <FormInput />
     </div>
   );
 }

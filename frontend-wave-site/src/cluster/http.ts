@@ -16,7 +16,6 @@ export async function NewCluster(input: FormInputType, type: string) {
     }
 
     const resData = await response.json();
-
     return resData.data.data;
   } catch (error) {
     console.error("Error:", error);
