@@ -6,8 +6,8 @@ type Props = {
 
 export default function ListModal({ text }: Props) {
   return (
-    <li className="flex">
-      <img src={IMAGE} alt="check" />
+    <li className="flex items-center">
+      <img src={IMAGE} alt="check" className="w-7 h-7" />
       <p className="ml-2 font-medium">{text}</p>
     </li>
   );

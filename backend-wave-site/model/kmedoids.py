@@ -14,11 +14,7 @@ class KMedoidsClustering(Transform):
         with open('./data/kmedoids.json', 'r') as file:
             self.cluster = json.load(file)
 
-    def predict(self):
-        features = ['mag', 'depth']
-
-        new_predict = self.model.predict(self.new_data[features])
-        self.add_new_data('kmedoids', new_predict[0])
-
-
-        return self.cluster[new_predict[0]]
+    def start_predict(self):
+        respone = self.predict(self.model, self.cluster, "kmedoids")
+        
+        return respone

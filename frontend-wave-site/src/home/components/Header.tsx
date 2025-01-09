@@ -16,10 +16,7 @@ export default function Header() {
     >
       <Navbar />
       <div className="grid justify-self-center justify-between w-[80%] h-[55vh] py-24">
-        <div>
-          <h1 className={classesH1}>Earthquake</h1>
-          <h1 className={classesH1}>Clustering</h1>
-        </div>
+        <h1 className={classesH1}>Earthquake Clustering</h1>
 
         <p className="text-base lg:text-lg text-white font-semibold w-80">
           A web application for earthquake clustering

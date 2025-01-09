@@ -1,44 +1,17 @@
 [
   {
     "cluster": "0",
-    "trait": [
-      "Memiliki magnitude kecil dengan kekuatan dari 2.7 sampai dengan 4.0 SR.",
-      "Kedalaman yang sangat dangkal berkisar antara 10 sampai 37 KM.",
-      "Jarak yang cukup sedang dari pusat gempa berkisar antara 12 sampai 55 KM.",
-      "Beberapa provinsi yang berada pada cluster ini antara lain Sulawesi Tengah, Nusa Tenggara Timur, dan lain-lain."
-    ],
-    "strategies": [
-      "Dengan memperkuat bangunan dan infrastuktur di daerah yang berpotensi terkena gempa.",
-      "Memberikan pendidikan kepada masyarakat tentang tindakan yang benar saat terjadi gempa bumi.",
-      "Meningkatkan sistem peringatan dini untuk gempa bumi dengan fokus pada jarak yang sedang."
-    ]
+    "trait": ["Magnitude yang kecil.", "Memiliki kedalaman menengah."],
+    "strategies": "Peningkatan kesadaran masyarakat melalui pelatihan kesiapsiagaan komunitas sangat penting dalam menghadapi risiko gempa. Selain itu, penguatan sistem monitoring gempa secara regional perlu dilakukan untuk mendeteksi potensi bencana lebih awal. Evaluasi ulang terhadap bangunan bertingkat dan fasilitas vital, seperti sekolah dan rumah sakit, juga harus dilakukan untuk memastikan keselamatan. Pengetatan regulasi bangunan agar sesuai dengan standar tahan gempa sangat diperlukan, serta pemetaan risiko gempa di daerah dengan populasi padat untuk mengurangi dampak yang mungkin ditimbulkan."
   },
   {
     "cluster": "1",
-    "trait": [
-      "Memiliki magnitude yang sedang berkisar antara 3.1 sampai dengan 6.0 SR.",
-      "Kedalaman yang cukup dangkal berkisar antara 10 sampai 166 KM.",
-      "Cakupan jarak yang cukup jauh dari pusat gempa bumi, dengan jarak 177 sampai 490 KM.",
-      "Beberapa provinsi yang berada pada cluster ini antara lain Sulawesi Utara, Banten, dan lain-lain."
-    ],
-    "strategies": [
-      "Dengan mengembangkan perencanaan evakuasi yang terkoordinasi dengan baik.",
-      "Pelatihan tim tanggap darurat untuk penanganan gempa bumi pada jarak jauh.",
-      "Penguatan infrastruktur kritis di daerah yang cakupan jaraknya cukup jauh dari pusat gempa."
-    ]
+    "trait": ["Magnitude yang sedang.", "Memiliki kedalaman yang dangkal."],
+    "strategies": "Sosialisasi jalur evakuasi dan titik aman di komunitas sangat penting untuk meningkatkan keselamatan warga. Pemasangan alat peringatan dini di daerah rawan juga perlu dilakukan untuk mendeteksi ancaman lebih awal. Selain itu, penanaman vegetasi di lereng daerah rawan dapat mencegah longsor. Rekonstruksi bangunan dengan material tahan gempa menjadi langkah krusial dalam memastikan ketahanan infrastruktur. Simulasi evakuasi massal di sekolah, kantor, dan fasilitas umum harus rutin dilaksanakan untuk mempersiapkan masyarakat. Terakhir, penyediaan stok darurat seperti makanan, air, dan obat di titik-titik strategis akan membantu dalam penanganan bencana secara efektif."
   },
   {
     "cluster": "2",
-    "trait": [
-      "Magnitude yang cukup kecil berkisar antara 2.5 sampai dengan 4.7 SR.",
-      "Memiliki kedalaman berkisar antara 59 sampai 200 KM.",
-      "Cakupan jarak yang cukup sedang dari pusat gempa, berkisar antara 3 sampai 180 KM.",
-      "Beberapa provinsi yang berada pada cluster ini antara lain Sumatera Utara, Maluku, dan lain-lain."
-    ],
-    "strategies": [
-      "Memantau dan menganalisis aktivitas gempa bumi secara terus menerus.",
-      "Melakukan sosialisasi tindakan mitigasi kepada masyarakat terkait gempa dengan kedalaman dangkal.",
-      "Meningkatkan ketersediaan fasilitas evakuasi dan pertolongan medis."
-    ]
+    "trait": ["Magnitude yang kecil.", "Memiliki kedalaman yang dangkal."],
+    "strategies": "Edukasi masyarakat tentang pentingnya memahami guncangan kecil dan kesiapsiagaan dalam menghadapi gempa sangat diperlukan untuk meningkatkan kesadaran dan respon yang tepat. Selain itu, pengecekan rutin bangunan perlu dilakukan untuk memastikan kestabilan struktur sederhana, sehingga dapat mengurangi risiko kerusakan dan meningkatkan keselamatan saat bencana terjadi."
   }
 ]

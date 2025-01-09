@@ -44,10 +44,17 @@ export default function Pages() {
               History of Earthquake Activity
             </h1>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam
-              voluptate voluptatibus temporibus rem commodi quos omnis quam
-              soluta labore error enim doloremque dolores quas quidem, eum
-              veritatis tempore suscipit in!
+              Earthquakes can occur at any time in Indonesia. Indonesia is an
+              archipelagic country located in a seismic hotspot, sitting at the
+              convergence of three tectonic plates: the Eurasian Plate, the
+              Indo-Australian Plate, and the Pacific Plate. The country has many
+              volcanoes situated near populated areas. More than one million
+              people live within 30 kilometers of 24 historically active
+              volcanoes, including Mount Merapi, Dieng, and others.
+              Additionally, Indonesia has numerous active faults located near
+              subduction zones or seismic regions. Subduction zones are areas
+              vulnerable to earthquakes, which is why Indonesia frequently
+              experiences earthquake disasters.
             </p>
           </section>
 

@@ -9,12 +9,7 @@ import { NewCluster } from "../http";
 import { ResultClusterType } from "../types/ClusterType";
 
 export default function FormInput() {
-  const [resultCluster, setResultCluster] = useState<ResultClusterType>({
-    cluster: "2",
-    trait: ["lorem", "lorem", "lorem"],
-    strategies:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias eligendi esse facilis ipsa nisi totam doloremque, nobis quae temporibus tempora possimus similique? Qui laboriosam possimus error corporis deserunt consequatur quisquam.",
-  });
+  const [resultCluster, setResultCluster] = useState<ResultClusterType>();
 
   const { clusterType } = ClusterTypeStore();
   const { modal, show, hide } = ModalStore();
@@ -23,11 +18,14 @@ export default function FormInput() {
     event.preventDefault();
 
     const formData = new FormData(event.currentTarget);
+    const formattedMonth = new Date().toLocaleString("id-ID", {
+      month: "short",
+    });
 
     const newTypedData: FormInputType = {
+      date: formattedMonth,
       mag: parseFloat(formData.get("mag") as string),
       depth: parseFloat(formData.get("depth") as string),
-      rad: parseFloat(formData.get("rad") as string),
       prov: formData.get("prov") as string,
     };
 
@@ -35,6 +33,7 @@ export default function FormInput() {
     if (clusterType != 0) {
       methodType = "kmedoids";
     }
+
     const result = await NewCluster(newTypedData, methodType);
     setResultCluster(result);
     show();
@@ -45,7 +44,7 @@ export default function FormInput() {
   return (
     <>
       <Modal
-        open={true}
+        open={openModal}
         onChange={openModal ? hide : undefined}
         result={resultCluster}
       />

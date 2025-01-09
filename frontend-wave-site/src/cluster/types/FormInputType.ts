@@ -1,6 +1,6 @@
 export type FormInputType = {
+  date: string;
   mag: number;
   depth: number;
-  rad: number;
   prov: string;
 };

@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from schemas.cluster import RecipeCluster
 from model.kmeans import KMeansClustering
 from model.kmedoids import KMedoidsClustering
-from model.transform import Transform
 
 app = FastAPI()
 
@@ -18,7 +17,7 @@ app.add_middleware(
 @app.post("/api/kmeans")
 async def postKmeans(items: RecipeCluster):
     clustering_instance = KMeansClustering(items)
-    labels = clustering_instance.predict()
+    labels = clustering_instance.start_predict()
 
     return {
         'status': "200",
@@ -32,7 +31,7 @@ async def postKmeans(items: RecipeCluster):
 @app.post("/api/kmedoids")
 async def postKmedoids(items: RecipeCluster):
     clustering_instance = KMedoidsClustering(items)
-    labels = clustering_instance.predict()
+    labels = clustering_instance.start_predict()
 
     return {
         'status': "200",

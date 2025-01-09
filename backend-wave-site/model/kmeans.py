@@ -1,6 +1,5 @@
 import pickle
 import json
-from sklearn.cluster import KMeans
 from schemas.cluster import RecipeCluster
 from model.transform import Transform
 
@@ -13,11 +12,12 @@ class KMeansClustering(Transform):
 
         with open('./data/kmeans.json', 'r') as file:
             self.cluster = json.load(file)
+            
+    def start_predict(self):
+        respone = self.predict(self.model, self.cluster, "kmeans")
+        
+        return respone
 
-    def predict(self):
-        features = ['mag', 'depth']
+    
 
-        new_predict = self.model.predict(self.new_data[features])
-        self.add_new_data('kmeans', new_predict[0])
-
-        return self.cluster[new_predict[0]]
+        
