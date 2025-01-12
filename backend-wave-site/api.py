@@ -3,6 +3,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from schemas.cluster import RecipeCluster
 from model.kmeans import KMeansClustering
 from model.kmedoids import KMedoidsClustering
+import pandas as pd
+import json
 
 app = FastAPI()
 
@@ -40,3 +42,11 @@ async def postKmedoids(items: RecipeCluster):
             'data': labels
         }
     }
+    
+@app.get("/api/show")
+def showData():
+    data = pd.read_csv('./data/dataset.csv')
+    to_json = data.to_dict(orient="records")
+    
+    return json.dumps(to_json)
+    

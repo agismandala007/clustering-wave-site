@@ -2,9 +2,9 @@ import pickle
 import json
 from sklearn_extra.cluster import KMedoids
 from schemas.cluster import RecipeCluster
-from model.transform import Transform
+from model.predict import Predict
 
-class KMedoidsClustering(Transform):
+class KMedoidsClustering(Predict):
     def __init__(self, new_data: RecipeCluster):
         super().__init__(new_data)
 

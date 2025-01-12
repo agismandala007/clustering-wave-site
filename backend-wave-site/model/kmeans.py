@@ -1,9 +1,9 @@
 import pickle
 import json
 from schemas.cluster import RecipeCluster
-from model.transform import Transform
+from model.predict import Predict
 
-class KMeansClustering(Transform):
+class KMeansClustering(Predict):
     def __init__(self, new_data: RecipeCluster):
         super().__init__(new_data)
 
